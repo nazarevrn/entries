@@ -1120,7 +1120,7 @@ var routes = [
 // },
 // {path: '/admin/vacations/create', component: VacationsCreate, name: 'createVacation'},
 // {path: '/admin/vacations/edit/:id', component: VacationsEdit, name: 'editVacation'},
-{ path: '/staff', component: __WEBPACK_IMPORTED_MODULE_1__components_staff_index_vue___default.a, name: 'staffIndex' }, { path: '/staff', component: __WEBPACK_IMPORTED_MODULE_2__components_staff_create_vue___default.a, name: 'staffCreate' }];
+{ path: '/staff', component: __WEBPACK_IMPORTED_MODULE_1__components_staff_index_vue___default.a, name: 'staffIndex' }, { path: '/staff/create', component: __WEBPACK_IMPORTED_MODULE_2__components_staff_create_vue___default.a, name: 'staffCreate' }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({ routes: routes });
 
@@ -47879,7 +47879,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             event.preventDefault();
             var app = this;
             var newStaff = app.staff;
-            axios.post('/api/v1/vacations', newStaff).then(function (resp) {
+            axios.post('/api/v1/staff', newStaff).then(function (resp) {
                 app.$router.push({ path: '/' });
             }).catch(function (resp) {
                 console.log(resp);

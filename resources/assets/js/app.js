@@ -33,7 +33,7 @@ const routes = [
     // {path: '/admin/vacations/create', component: VacationsCreate, name: 'createVacation'},
     // {path: '/admin/vacations/edit/:id', component: VacationsEdit, name: 'editVacation'},
     {path: '/staff', component: StaffIndex, name: 'staffIndex'},
-    {path: '/staff', component: StaffCreate, name: 'staffCreate'},
+    {path: '/staff/create', component: StaffCreate, name: 'staffCreate'},
 
 ]
 

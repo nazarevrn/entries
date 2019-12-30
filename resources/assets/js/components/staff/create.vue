@@ -54,7 +54,7 @@
                 event.preventDefault();
                 var app = this;
                 var newStaff = app.staff;
-                axios.post('/api/v1/vacations', newStaff)
+                axios.post('/api/v1/staff', newStaff)
                     .then(function (resp) {
                         app.$router.push({path: '/'});
                     })
