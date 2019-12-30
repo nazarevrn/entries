@@ -36,7 +36,7 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return '123';
     }
 
     /**
@@ -70,7 +70,7 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -81,6 +81,7 @@ class StaffController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Staff::destroy($id);
+        return '';
     }
 }
