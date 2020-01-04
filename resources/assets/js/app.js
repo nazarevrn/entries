@@ -23,11 +23,15 @@ import StaffIndex from './components/staff/index.vue';
 import StaffCreate from './components/staff/create.vue';
 import StaffEdit from './components/staff/edit.vue';
 
+import EntriesIndex from './components/entries/index.vue';
+
 const routes = [
 
     {path: '/staff', component: StaffIndex, name: 'staffIndex'},
     {path: '/staff/create', component: StaffCreate, name: 'staffCreate'},
     {path: '/staff/:id/edit', component: StaffEdit, name: 'editStaff'},
+
+    {path: '/entries', component: EntriesIndex, name: 'entriesIndex'},
     
 
 ]

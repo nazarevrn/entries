@@ -19,10 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => '/v1', 'namespace' => 'Api\V1', 'as' => 'api.'], function () {
     Route::resource('staff', 'StaffController');
-    //Route::resource('staff/create', 'StaffController');
-    //Route::resource('staff/destroy', 'StaffController');
-    // Route::apiResources([
-    //     'staff' => 'StaffController',
-    //     'entries' => 'EntriesController'
-    // ]);
+    Route::resource('entries', 'EntriesController');
 });
+

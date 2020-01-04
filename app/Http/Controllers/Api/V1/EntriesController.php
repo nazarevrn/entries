@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Entries;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class EntriesController extends Controller
 {
@@ -15,7 +15,15 @@ class EntriesController extends Controller
      */
     public function index()
     {
-        return Entries::all();
+        $items =  Entries::all();
+        
+        foreach ($items as $item) {
+            //адскый костыль. пока не нашёл, как включить жадную загрузку
+            $result['data'] = [$item, $item->staff->name];
+
+        }
+
+        return $result;
     }
 
     /**
@@ -47,7 +55,9 @@ class EntriesController extends Controller
      */
     public function show($id)
     {
-        return Entries::findOrFail($id);
+        //return Entries::findOrFail($id);
+        $a = Entries::findOrFail($id);
+        return $a->staff->name;
     }
 
     /**
