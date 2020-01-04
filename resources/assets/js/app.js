@@ -24,14 +24,7 @@ import StaffCreate from './components/staff/create.vue';
 import StaffEdit from './components/staff/edit.vue';
 
 const routes = [
-    // {
-    //     path: '/',
-    //     components: {
-    //         vacationsIndex: VacationsIndex
-    //     }
-    // },
-    // {path: '/admin/vacations/create', component: VacationsCreate, name: 'createVacation'},
-    // {path: '/admin/vacations/edit/:id', component: VacationsEdit, name: 'editVacation'},
+
     {path: '/staff', component: StaffIndex, name: 'staffIndex'},
     {path: '/staff/create', component: StaffCreate, name: 'staffCreate'},
     {path: '/staff/:id/edit', component: StaffEdit, name: 'editStaff'},

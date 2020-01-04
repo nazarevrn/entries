@@ -45,7 +45,6 @@
                     name: '',
                     code: '',
                     phone: '',
-                    //email: '',
                 }
             }
         },
