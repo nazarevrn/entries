@@ -48463,7 +48463,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(id);
             }
         }
+    },
+
+    filters: {
+        direction_filter: function direction_filter(value) {
+            if (value === 0) {
+                return 'Вход';
+            } else {
+                return 'Выход';
+            }
+            //return value.toFixed(2)
+        }
     }
+
 });
 
 /***/ }),
@@ -48506,7 +48518,11 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(item[0].timestamp))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item[0].pass_direction))])
+                _c("td", [
+                  _vm._v(
+                    _vm._s(_vm._f("direction_filter")(item[0].pass_direction))
+                  )
+                ])
               ])
             }),
             0
