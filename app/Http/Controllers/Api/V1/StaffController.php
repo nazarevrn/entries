@@ -36,7 +36,8 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        return '123';
+        Staff::create($request->all());
+        return '';
     }
 
     /**
