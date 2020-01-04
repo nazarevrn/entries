@@ -21,7 +21,7 @@ window.Vue.use(VueRouter);
 
 import StaffIndex from './components/staff/index.vue';
 import StaffCreate from './components/staff/create.vue';
-// import VacationsEdit from './components/vacations/VacationsEdit.vue';
+import StaffEdit from './components/staff/edit.vue';
 
 const routes = [
     // {
@@ -34,6 +34,8 @@ const routes = [
     // {path: '/admin/vacations/edit/:id', component: VacationsEdit, name: 'editVacation'},
     {path: '/staff', component: StaffIndex, name: 'staffIndex'},
     {path: '/staff/create', component: StaffCreate, name: 'staffCreate'},
+    {path: '/staff/:id/edit', component: StaffEdit, name: 'editStaff'},
+    
 
 ]
 

@@ -48,7 +48,7 @@ class StaffController extends Controller
      */
     public function show($id)
     {
-        //
+        return Staff::find($id);
     }
 
     /**
@@ -59,7 +59,7 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
-        //
+        return $id;
     }
 
     /**
@@ -71,6 +71,12 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $staffItem = $this->show($id);
+        $staffItem->name = $request->input('name');
+        $staffItem->code = $request->input('code');
+        $staffItem->phone = $request->input('phone');
+        $staffItem->save();
+        return '';
 
     }
 
