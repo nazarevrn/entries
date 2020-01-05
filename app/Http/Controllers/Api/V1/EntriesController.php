@@ -4,40 +4,25 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Staff;
 use App\Entries;
+use App\EntriesFilter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 
 class EntriesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Все записи с учётом фильтров
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        //$items =  Entries::all();
+        //жадная загрузка
         $items = Entries::with('staff');
-
-        //фильтрация
-        if ($request->name) {
-            $items->whereHas('staff', function ($query) use ($request) {
-                $query->where('name', 'like', "%$request->name%");
-            });
-        }
-
-        $items = $items->get();
-
+        //применяем фильтры
+        $items = (new EntriesFilter($items, $request))->apply()->get();
         return $items;
-        /*
-        foreach ($items as $item) {
-            //адскый костыль. пока не нашёл, как включить жадную загрузку
-            $result[] = [$item, $item->staff->name];
-
-        }
-
-        return $result;
-        */
     }
 
     /**
