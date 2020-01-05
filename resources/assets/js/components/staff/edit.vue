@@ -68,7 +68,7 @@
                 var newStaff = app.staff;
                 axios.patch('/api/v1/staff/' + app.staffId, newStaff)
                     .then(function (resp) {
-                        app.$router.replace('/');
+                        app.$router.push({name: 'staffIndex'});
                     })
                     .catch(function (resp) {
                         console.log(resp);

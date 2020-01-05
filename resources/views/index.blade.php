@@ -12,7 +12,7 @@
                         <router-view name="staffIndex"></router-view>
                         <router-view></router-view>
                         <div class="form-group">
-                            <router-link :to="{name: 'staffIndex'}" class="btn btn-success">Список пользователей</router-link>
+                            <!-- <router-link :to="{name: 'staffIndex'}" class="btn btn-success">Список пользователей</router-link> -->
                         </div>
                     </div>
                  </div>

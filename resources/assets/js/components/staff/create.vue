@@ -55,7 +55,7 @@
                 var newStaff = app.staff;
                 axios.post('/api/v1/staff', newStaff)
                     .then(function (resp) {
-                        app.$router.push({path: '/'});
+                        app.$router.push({name: 'staffIndex'});
                     })
                     .catch(function (resp) {
                         console.log(resp);

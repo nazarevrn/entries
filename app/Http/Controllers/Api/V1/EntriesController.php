@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Staff;
 use App\Entries;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,7 @@ class EntriesController extends Controller
         
         foreach ($items as $item) {
             //адскый костыль. пока не нашёл, как включить жадную загрузку
-            $result['data'] = [$item, $item->staff->name];
+            $result[] = [$item, $item->staff->name];
 
         }
 
@@ -31,20 +32,36 @@ class EntriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($data)
     {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Используется для генерации информации о посещениях
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $staff = Staff::all();
+        //$staffIds = [];
+        foreach ($staff as $item) {
+            //$item->id - id рабочего
+            //запись о входе
+            // $data['staff_id'] = $item->id;
+            $time = new \DateTime();
+            // $data['timestamp'] = $time->format('Y-m-d');
+            // $data['pass_direction'] = 0;
+            Entries::create([
+                'staff_id' => $item->id,
+                'timestamp' => $time->format('Y-m-d'),
+                'pass_direction' => 0
+
+            ]);
+        }
+
+        //foreach ($)
     }
 
     /**
@@ -93,4 +110,5 @@ class EntriesController extends Controller
     {
         //
     }
+
 }

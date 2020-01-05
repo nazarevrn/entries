@@ -24,6 +24,7 @@ import StaffCreate from './components/staff/create.vue';
 import StaffEdit from './components/staff/edit.vue';
 
 import EntriesIndex from './components/entries/index.vue';
+import EntriesGenerate from './components/entries/generate.vue';
 
 const routes = [
 
@@ -32,6 +33,7 @@ const routes = [
     {path: '/staff/:id/edit', component: StaffEdit, name: 'editStaff'},
 
     {path: '/entries', component: EntriesIndex, name: 'entriesIndex'},
+    {path: '/entries/generate', component: EntriesGenerate, name: 'entriesGenerate'},
     
 
 ]

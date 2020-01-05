@@ -1,7 +1,11 @@
 <template>
     <div>
         <div class="form-group">
-            <router-link :to="{name: 'staffCreate'}" class="btn btn-success">Создать нового пользователя</router-link>
+            <router-link :to="{name: 'staffIndex'}" class="btn btn-success">Действия с пользователями</router-link>
+        </div>
+
+        <div class="form-group">
+            <router-link :to="{name: 'entriesGenerate'}" class="btn btn-success">Генерировать информацию о посещениях</router-link>
         </div>
  
         <div class="panel panel-default">
@@ -57,21 +61,20 @@
                     alert("Could not load entries");
                 });
         },
-        methods: {
-            deleteEntry(id) {
-                if (confirm("Вы действительно хотите удалить?")) {
-                    var app = this;
-                    axios.delete('/api/v1/staff/' + id)
-                        .then(function (resp) {
-                            app.$router.push({path: '/'});
-                        })
-                        .catch(function (resp) {
-                            alert("Удаление невозможно...");
-                        });
-                    console.log(id);
-                }
-            }
-        },
+        // methods: {
+        //     deleteEntry(id) {
+        //         if (confirm("Вы действительно хотите удалить?")) {
+        //             var app = this;
+        //             axios.delete('/api/v1/staff/' + id)
+        //                 .then(function (resp) {
+        //                     app.$router.push({path: '/'});
+        //                 })
+        //                 .catch(function (resp) {
+        //                     alert("Удаление невозможно...");
+        //                 });
+        //         }
+        //     }
+        // },
 
         filters: {
             direction_filter (value) {
@@ -85,7 +88,4 @@
         }
 
     }
-    
-
-
 </script>

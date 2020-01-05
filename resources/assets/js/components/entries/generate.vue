@@ -1,0 +1,35 @@
+<template>
+    <div>
+        <div class="form-group">
+            <router-link :to="{name: 'entriesIndex'}" class="btn btn-success">Просмотр информации о посещениях</router-link>
+        </div>
+
+        <div>
+            <a href="#"
+                class="btn btn-xs btn-danger"
+                v-on:click="generate()">
+                Генерировать
+            </a>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        methods: {
+            generate() {
+                
+                axios.post('/api/v1/entries')
+                    .then(function (resp)  {
+                        app.$router.push({name: 'entriesIndex'});
+                    })
+                    .catch(function (resp) {
+                        //app.$router.push({name: 'entriesIndex'});
+                        //console.log(resp);
+                        //alert('Ошибка во время генерации');
+                        
+                    });
+            }
+        }
+    }
+</script>

@@ -3,6 +3,10 @@
         <div class="form-group">
             <router-link :to="{name: 'staffCreate'}" class="btn btn-success">Создать нового пользователя</router-link>
         </div>
+
+        <div class="form-group">
+            <router-link :to="{name: 'entriesIndex'}" class="btn btn-success">Просмотр информации о посещениях</router-link>
+        </div>
  
         <div class="panel panel-default">
             <div class="panel-heading">Список пользователей</div>
