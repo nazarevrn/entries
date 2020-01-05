@@ -10,6 +10,14 @@
  
         <div class="panel panel-default">
             <div class="panel-heading">Список посещений</div>
+            <form>
+                <div class="name filter">
+                    <input v-model="name" type="text" class="form-control" placeholder = "ФИО">
+                </div>
+                <div class="apply_filter">
+                    <button type="submit" @click.prevent="fetch" >Применить фильтр</button>
+                </div>
+            </form>    
             <div class="panel-body">
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -47,34 +55,45 @@
     export default {
         data: function () {
             return {
+                name: '',
                 entries: []
             }
         },
-        mounted() {
-            var app = this;
-            axios.get('/api/v1/entries')
-                .then(function (resp) {
-                    app.entries = resp.data;
-                })
-                .catch(function (resp) {
-                    console.log(resp);
-                    alert("Could not load entries");
-                });
-        },
-        // methods: {
-        //     deleteEntry(id) {
-        //         if (confirm("Вы действительно хотите удалить?")) {
-        //             var app = this;
-        //             axios.delete('/api/v1/staff/' + id)
-        //                 .then(function (resp) {
-        //                     app.$router.push({path: '/'});
-        //                 })
-        //                 .catch(function (resp) {
-        //                     alert("Удаление невозможно...");
-        //                 });
-        //         }
-        //     }
+        // mounted() {
+        //     var app = this;
+        //     axios.get(`/api/v1/entries`)
+        //         .then(function (resp) {
+        //             app.entries = resp.data;
+        //         })
+        //         .catch(function (resp) {
+        //             console.log(resp);
+        //             alert("Could not load entries");
+        //         });
         // },
+
+        methods: {
+            fetch () {
+                var app = this;
+                axios.get(`/api/v1/entries`, {
+                    params: {
+                        name : this.name
+                    }
+                })
+                    .then(function (resp) {
+                        app.entries = resp.data;
+                    })
+                    .catch(function (resp) {
+                        console.log(resp);
+                        alert("Could not load entries");
+                    });
+            },
+            
+            // filter() {
+            //     console.log(123);
+            // }
+
+
+        },
 
         filters: {
             direction_filter (value) {
@@ -85,6 +104,10 @@
                 }
                 //return value.toFixed(2)
             }
+        },
+
+        mounted() {
+            this.fetch();
         }
 
     }

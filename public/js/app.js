@@ -48395,37 +48395,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            name: '',
             entries: []
         };
     },
-    mounted: function mounted() {
-        var app = this;
-        axios.get('/api/v1/entries').then(function (resp) {
-            app.entries = resp.data;
-        }).catch(function (resp) {
-            console.log(resp);
-            alert("Could not load entries");
-        });
-    },
-
-    // methods: {
-    //     deleteEntry(id) {
-    //         if (confirm("Вы действительно хотите удалить?")) {
-    //             var app = this;
-    //             axios.delete('/api/v1/staff/' + id)
-    //                 .then(function (resp) {
-    //                     app.$router.push({path: '/'});
-    //                 })
-    //                 .catch(function (resp) {
-    //                     alert("Удаление невозможно...");
-    //                 });
-    //         }
-    //     }
+    // mounted() {
+    //     var app = this;
+    //     axios.get(`/api/v1/entries`)
+    //         .then(function (resp) {
+    //             app.entries = resp.data;
+    //         })
+    //         .catch(function (resp) {
+    //             console.log(resp);
+    //             alert("Could not load entries");
+    //         });
     // },
+
+    methods: {
+        fetch: function fetch() {
+            var app = this;
+            axios.get('/api/v1/entries', {
+                params: {
+                    name: this.name
+                }
+            }).then(function (resp) {
+                app.entries = resp.data;
+            }).catch(function (resp) {
+                console.log(resp);
+                alert("Could not load entries");
+            });
+        }
+    },
 
     filters: {
         direction_filter: function direction_filter(value) {
@@ -48436,8 +48448,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
             //return value.toFixed(2)
         }
-    }
+    },
 
+    mounted: function mounted() {
+        this.fetch();
+    }
 });
 
 /***/ }),
@@ -48483,6 +48498,48 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
       _c("div", { staticClass: "panel-heading" }, [_vm._v("Список посещений")]),
+      _vm._v(" "),
+      _c("form", [
+        _c("div", { staticClass: "name filter" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.name,
+                expression: "name"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "ФИО" },
+            domProps: { value: _vm.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.name = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "apply_filter" }, [
+          _c(
+            "button",
+            {
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.fetch($event)
+                }
+              }
+            },
+            [_vm._v("Применить фильтр")]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "panel-body" }, [
         _c("table", { staticClass: "table table-bordered table-striped" }, [
