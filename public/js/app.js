@@ -47873,7 +47873,10 @@ var render = function() {
       [
         _c(
           "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
+          {
+            staticClass: "btn btn-default",
+            attrs: { to: { name: "staffIndex" } }
+          },
           [_vm._v("Back")]
         )
       ],
@@ -48489,13 +48492,13 @@ var render = function() {
             "tbody",
             _vm._l(_vm.entries, function(item, id) {
               return _c("tr", { key: id }, [
-                _c("td", [_vm._v(_vm._s(item[0].staff.name))]),
+                _c("td", [_vm._v(_vm._s(item.staff.name))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(item[0].timestamp))]),
+                _c("td", [_vm._v(_vm._s(item.timestamp))]),
                 _vm._v(" "),
                 _c("td", [
                   _vm._v(
-                    _vm._s(_vm._f("direction_filter")(item[0].pass_direction))
+                    _vm._s(_vm._f("direction_filter")(item.pass_direction))
                   )
                 ])
               ])

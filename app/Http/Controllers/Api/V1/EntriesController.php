@@ -14,10 +14,22 @@ class EntriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items =  Entries::all();
-        
+        //$items =  Entries::all();
+        $items = Entries::with('staff');
+
+        //фильтрация
+        if ($request->name) {
+            $items->whereHas('staff', function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->name%");
+            });
+        }
+
+        $items = $items->get();
+
+        return $items;
+        /*
         foreach ($items as $item) {
             //адскый костыль. пока не нашёл, как включить жадную загрузку
             $result[] = [$item, $item->staff->name];
@@ -25,6 +37,7 @@ class EntriesController extends Controller
         }
 
         return $result;
+        */
     }
 
     /**

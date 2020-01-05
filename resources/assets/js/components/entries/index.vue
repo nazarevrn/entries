@@ -22,9 +22,9 @@
                     </thead>
                     <tbody>
                     <tr v-for="(item, id) in entries" v-bind:key="id">
-                        <td>{{ item[0].staff.name }}</td>
-                        <td>{{ item[0].timestamp }}</td>
-                        <td>{{ item[0].pass_direction | direction_filter }}</td>
+                        <td>{{ item.staff.name }}</td>
+                        <td>{{ item.timestamp }}</td>
+                        <td>{{ item.pass_direction | direction_filter }}</td>
                         <!-- <td>
                             <router-link :to="{name: 'editStaff', params: {id: item.id}}" class="btn btn-xs btn-default">
                                 Редактировать
