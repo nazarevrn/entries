@@ -54,4 +54,30 @@ class Entriesfilter
             $query->where('name', 'like', "%$value%");
         });
     }
+
+    /**
+     * Фильтрация диапазана дат. Фильтр начала диапазона.
+     *
+     * @param [type] $value
+     * @return void
+     */
+    public function from ($value)
+    {
+        $date = (new \DateTime($value))->format('Y-m-d H:m:s');
+        $this->biulder->where('timestamp', '>=', $date);
+    }
+
+    /**
+     * Фильтрация диапазана дат. Фильтр конца диапазона.
+     *
+     * @param [type] $value
+     * @return void
+     */
+    public function to ($value)
+    {
+        
+        $date = (new \DateTime($value))->format('Y-m-d H:m:s');
+        $this->biulder->where('timestamp', '<=', $date);
+        
+    }
 }

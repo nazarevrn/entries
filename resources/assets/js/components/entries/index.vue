@@ -20,7 +20,8 @@
                         :from="$route.query.from" 
                         :to="$route.query.to" 
                         :panel="$route.query.panel" 
-                        :locale="locale"   
+                        :locale="locale" 
+                        :submitTitle="submitTitle"  
                         @update="update"/>
                 </div>
                 <div class="apply_filter">
@@ -35,7 +36,6 @@
                         <th>ФИО</th>
                         <th>Время</th>
                         <th>Направление</th>
-                        <!-- <th width="100">&nbsp;</th> -->
                     </tr>
                     </thead>
                     <tbody>
@@ -43,16 +43,6 @@
                         <td>{{ item.staff.name }}</td>
                         <td>{{ item.timestamp }}</td>
                         <td>{{ item.pass_direction | direction_filter }}</td>
-                        <!-- <td>
-                            <router-link :to="{name: 'editStaff', params: {id: item.id}}" class="btn btn-xs btn-default">
-                                Редактировать
-                            </router-link>
-                            <a href="#"
-                               class="btn btn-xs btn-danger"
-                               v-on:click="deleteEntry(item.id)">
-                                Удалить
-                            </a>
-                        </td> -->
                     </tr>
                     </tbody>
                 </table>
@@ -63,24 +53,15 @@
  
 <script>
     export default {
+
         data: function () {
             return {
                 name: '',
                 entries: [],
-                locale: "ru"
+                locale: "ru",
+                submitTitle: "Задать диапазон"
             }
         },
-        // mounted() {
-        //     var app = this;
-        //     axios.get(`/api/v1/entries`)
-        //         .then(function (resp) {
-        //             app.entries = resp.data;
-        //         })
-        //         .catch(function (resp) {
-        //             console.log(resp);
-        //             alert("Could not load entries");
-        //         });
-        // },
 
         methods: {
             fetch () {
@@ -120,7 +101,6 @@
                 } else {
                     return 'Выход';
                 }
-                //return value.toFixed(2)
             }
         },
 

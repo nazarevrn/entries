@@ -63016,13 +63016,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             name: '',
             entries: [],
-            locale: "ru"
+            locale: "ru",
+            submitTitle: "Задать диапазон"
         };
     },
     // mounted() {
@@ -63161,7 +63163,8 @@ var render = function() {
                 from: _vm.$route.query.from,
                 to: _vm.$route.query.to,
                 panel: _vm.$route.query.panel,
-                locale: _vm.locale
+                locale: _vm.locale,
+                submitTitle: _vm.submitTitle
               },
               on: { update: _vm.update }
             })
