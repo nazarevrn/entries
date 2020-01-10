@@ -14,9 +14,19 @@
                 <div class="name filter">
                     <input v-model="name" type="text" class="form-control" placeholder = "ФИО">
                 </div>
+                <div class="panel-heading">Фильтр по времени</div>
+                <div class="picker">
+                    <date-range-picker 
+                        :from="$route.query.from" 
+                        :to="$route.query.to" 
+                        :panel="$route.query.panel" 
+                        :locale="locale"   
+                        @update="update"/>
+                </div>
                 <div class="apply_filter">
                     <button type="submit" @click.prevent="fetch" >Применить фильтр</button>
                 </div>
+
             </form>    
             <div class="panel-body">
                 <table class="table table-bordered table-striped">
@@ -56,7 +66,8 @@
         data: function () {
             return {
                 name: '',
-                entries: []
+                entries: [],
+                locale: "ru"
             }
         },
         // mounted() {
@@ -76,7 +87,9 @@
                 var app = this;
                 axios.get(`/api/v1/entries`, {
                     params: {
-                        name : this.name
+                        name : this.name,
+                        from: this.$route.query.from,
+                        to: this.$route.query.to
                     }
                 })
                     .then(function (resp) {
@@ -87,10 +100,15 @@
                         alert("Could not load entries");
                     });
             },
-            
-            // filter() {
-            //     console.log(123);
-            // }
+
+            update(values) {
+                this.$router.push({ query: Object.assign({}, this.$route.query, {
+                    to: values.to,
+                    from: values.from,
+                    panel: values.panel
+                    }) 
+                })
+            },
 
 
         },

@@ -16,8 +16,15 @@ window.Vue = require('vue');
  */
 
 import VueRouter from 'vue-router';
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+    return originalPush.call(this, location).catch(err => err)
+};
+import DateRangePicker from 'vue-mj-daterangepicker'
+import 'vue-mj-daterangepicker/dist/vue-mj-daterangepicker.css'
 
 window.Vue.use(VueRouter);
+window.Vue.use(DateRangePicker);
 
 import StaffIndex from './components/staff/index.vue';
 import StaffCreate from './components/staff/create.vue';
@@ -25,6 +32,8 @@ import StaffEdit from './components/staff/edit.vue';
 
 import EntriesIndex from './components/entries/index.vue';
 import EntriesGenerate from './components/entries/generate.vue';
+
+
 
 const routes = [
 
