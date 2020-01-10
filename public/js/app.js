@@ -62203,7 +62203,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }).catch(function (resp) {
                     alert("Удаление невозможно...");
                 });
-                console.log(id);
+                //console.log(id);
             }
         }
     }
@@ -63295,7 +63295,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", [
+    _c("div", { staticClass: "form-group" }, [
       _c(
         "a",
         {

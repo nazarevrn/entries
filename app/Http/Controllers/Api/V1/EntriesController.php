@@ -47,7 +47,7 @@ class EntriesController extends Controller
             $time = new \DateTime();
             Entries::create([
                 'staff_id' => $item->id,
-                'timestamp' => $time->format('Y-m-d'),
+                'timestamp' => $time->format('Y-m-d H:i:s'),
                 'pass_direction' => rand(0, 1)
             ]);
         }

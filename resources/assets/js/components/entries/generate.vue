@@ -4,7 +4,7 @@
             <router-link :to="{name: 'entriesIndex'}" class="btn btn-success">Просмотр информации о посещениях</router-link>
         </div>
 
-        <div>
+        <div class="form-group">
             <a href="#"
                 class="btn btn-xs btn-danger"
                 v-on:click="generate()">

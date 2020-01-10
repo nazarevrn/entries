@@ -72,7 +72,7 @@
                         .catch(function (resp) {
                             alert("Удаление невозможно...");
                         });
-                    console.log(id);
+                    //console.log(id);
                 }
             }
         }
