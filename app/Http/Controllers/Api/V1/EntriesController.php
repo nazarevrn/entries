@@ -43,23 +43,16 @@ class EntriesController extends Controller
     public function store()
     {
         $staff = Staff::all();
-        //$staffIds = [];
         foreach ($staff as $item) {
-            //$item->id - id рабочего
-            //запись о входе
-            // $data['staff_id'] = $item->id;
             $time = new \DateTime();
-            // $data['timestamp'] = $time->format('Y-m-d');
-            // $data['pass_direction'] = 0;
             Entries::create([
                 'staff_id' => $item->id,
                 'timestamp' => $time->format('Y-m-d'),
-                'pass_direction' => 0
-
+                'pass_direction' => rand(0, 1)
             ]);
         }
 
-        //foreach ($)
+        return 'ok';
     }
 
     /**

@@ -18,15 +18,14 @@
     export default {
         methods: {
             generate() {
-                
+                let app = this;
                 axios.post('/api/v1/entries')
                     .then(function (resp)  {
                         app.$router.push({name: 'entriesIndex'});
                     })
                     .catch(function (resp) {
-                        //app.$router.push({name: 'entriesIndex'});
-                        //console.log(resp);
-                        //alert('Ошибка во время генерации');
+                        console.log(resp);
+                        alert('Ошибка во время генерации');
                         
                     });
             }
