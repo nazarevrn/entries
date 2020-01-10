@@ -63,7 +63,7 @@ class Entriesfilter
      */
     public function from ($value)
     {
-        $date = (new \DateTime($value))->format('Y-m-d H:m:s');
+        $date = (new \DateTime($value))->format('Y-m-d H:i:s');
         $this->biulder->where('timestamp', '>=', $date);
     }
 
@@ -75,8 +75,7 @@ class Entriesfilter
      */
     public function to ($value)
     {
-        
-        $date = (new \DateTime($value))->format('Y-m-d H:m:s');
+        $date = (new \DateTime($value))->format('Y-m-d H:i:s');
         $this->biulder->where('timestamp', '<=', $date);
         
     }
