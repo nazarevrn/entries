@@ -25,7 +25,7 @@
                         @update="update"/>
                 </div>
                 <div class="apply_filter">
-                    <button type="submit" @click.prevent="fetch" >Применить фильтр</button>
+                    <button type="submit" @click.prevent="fetch" class="btn btn-success" >Применить фильтр</button>
                 </div>
 
             </form>    

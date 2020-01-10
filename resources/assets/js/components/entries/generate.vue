@@ -6,7 +6,7 @@
 
         <div class="form-group">
             <a href="#"
-                class="btn btn-xs btn-danger"
+                class="btn btn-danger"
                 v-on:click="generate()">
                 Генерировать
             </a>
