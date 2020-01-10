@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <router-link :to="{name: 'staffIndex'}" class="btn btn-success">Действия с пользователями</router-link>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <router-link :to="{name: 'entriesGenerate'}" class="btn btn-success">Генерировать информацию о посещениях</router-link>

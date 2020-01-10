@@ -62234,22 +62234,6 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-success",
-            attrs: { to: { name: "entriesIndex" } }
-          },
-          [_vm._v("Просмотр информации о посещениях")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
       _c("div", { staticClass: "panel-heading" }, [
         _vm._v("Список пользователей")
@@ -63006,19 +62990,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+
     data: function data() {
         return {
             name: '',
@@ -63027,17 +63001,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             submitTitle: "Задать диапазон"
         };
     },
-    // mounted() {
-    //     var app = this;
-    //     axios.get(`/api/v1/entries`)
-    //         .then(function (resp) {
-    //             app.entries = resp.data;
-    //         })
-    //         .catch(function (resp) {
-    //             console.log(resp);
-    //             alert("Could not load entries");
-    //         });
-    // },
 
     methods: {
         fetch: function fetch() {
@@ -63072,7 +63035,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else {
                 return 'Выход';
             }
-            //return value.toFixed(2)
         }
     },
 
@@ -63090,22 +63052,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-success",
-            attrs: { to: { name: "staffIndex" } }
-          },
-          [_vm._v("Действия с пользователями")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "form-group" },

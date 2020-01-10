@@ -16,7 +16,7 @@ class CreateEntriesTable extends Migration
         Schema::create('entries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('staff_id', false, true); //unsigned
-            $table->foreign('staff_id')->references('id')->on('staff');
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
             $table->timestamp('timestamp');
             $table->tinyInteger('pass_direction')->comment('0 - in, 1 - out');
             $table->timestamps();
