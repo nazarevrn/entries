@@ -1,9 +1,5 @@
 <template>
     <div>
-        <!-- <div class="form-group">
-            <router-link :to="{name: 'staffIndex'}" class="btn btn-success">Действия с пользователями</router-link>
-        </div> -->
-
         <div class="form-group">
             <router-link :to="{name: 'entriesGenerate'}" class="btn btn-success">Генерировать информацию о посещениях</router-link>
         </div>
@@ -14,8 +10,10 @@
                 <div class="name filter">
                     <input v-model="name" type="text" class="form-control" placeholder = "ФИО">
                 </div>
-                <div class="panel-heading">Фильтр по времени</div>
-                <div class="picker">
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">
+                    Фильтр по времени
+                </a> 
+                <div class="picker collapse" id="collapse">
                     <date-range-picker 
                         :from="$route.query.from" 
                         :to="$route.query.to" 
@@ -25,8 +23,8 @@
                         @update="update"/>
                 </div>
                 <div class="filter_buttons">
-                    <button type="submit" @click.prevent="fetch" class="btn btn-success" >Применить фильтр</button>
-                    <button type="submit" @click.prevent="reset" class="btn btn-danger" >Сбросить фильтр</button>
+                    <button type="submit" @click.prevent="fetch" class="btn btn-success">Применить фильтр</button>
+                    <button type="submit" @click.prevent="reset" class="btn btn-danger">Сбросить фильтр</button>
                 </div>
 
             </form>    
@@ -96,7 +94,8 @@
                 this.name = null;
                 let values = {
                     from: null,
-                    to : null
+                    to : null,
+                    panel : null
                     };
                 this.update(values);
                 this.fetch();

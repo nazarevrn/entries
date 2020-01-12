@@ -63021,8 +63021,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -63061,11 +63059,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         reset: function reset() {
             this.name = null;
-            // this.from = null;
-            // this.to = null;
             var values = {
                 from: null,
-                to: null
+                to: null,
+                panel: null
             };
             this.update(values);
             this.fetch();
@@ -63140,13 +63137,23 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "panel-heading" }, [
-          _vm._v("Фильтр по времени")
-        ]),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-primary",
+            attrs: {
+              "data-toggle": "collapse",
+              href: "#collapse",
+              "aria-expanded": "false",
+              "aria-controls": "collapse"
+            }
+          },
+          [_vm._v("\n                Фильтр по времени\n            ")]
+        ),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "picker" },
+          { staticClass: "picker collapse", attrs: { id: "collapse" } },
           [
             _c("date-range-picker", {
               attrs: {
