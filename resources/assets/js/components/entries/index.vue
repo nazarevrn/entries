@@ -24,8 +24,9 @@
                         :submitTitle="submitTitle"  
                         @update="update"/>
                 </div>
-                <div class="apply_filter">
+                <div class="filter_buttons">
                     <button type="submit" @click.prevent="fetch" class="btn btn-success" >Применить фильтр</button>
+                    <button type="submit" @click.prevent="reset" class="btn btn-danger" >Сбросить фильтр</button>
                 </div>
 
             </form>    
@@ -90,6 +91,16 @@
                     }) 
                 })
             },
+
+            reset() {
+                this.name = null;
+                let values = {
+                    from: null,
+                    to : null
+                    };
+                this.update(values);
+                this.fetch();
+            }
 
 
         },

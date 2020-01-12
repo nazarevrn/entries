@@ -62259,7 +62259,7 @@ var render = function() {
                     _c(
                       "router-link",
                       {
-                        staticClass: "btn btn-xs btn-default",
+                        staticClass: "btn btn-sm btn-block btn-default",
                         attrs: {
                           to: { name: "editStaff", params: { id: item.id } }
                         }
@@ -62274,7 +62274,7 @@ var render = function() {
                     _c(
                       "a",
                       {
-                        staticClass: "btn btn-xs btn-danger",
+                        staticClass: "btn btn-sm btn-block btn-danger",
                         attrs: { href: "#" },
                         on: {
                           click: function($event) {
@@ -63022,6 +63022,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -63057,6 +63058,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     panel: values.panel
                 })
             });
+        },
+        reset: function reset() {
+            this.name = null;
+            // this.from = null;
+            // this.to = null;
+            var values = {
+                from: null,
+                to: null
+            };
+            this.update(values);
+            this.fetch();
         }
     },
 
@@ -63150,7 +63162,7 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "apply_filter" }, [
+        _c("div", { staticClass: "filter_buttons" }, [
           _c(
             "button",
             {
@@ -63164,6 +63176,21 @@ var render = function() {
               }
             },
             [_vm._v("Применить фильтр")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger",
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.reset($event)
+                }
+              }
+            },
+            [_vm._v("Сбросить фильтр")]
           )
         ])
       ]),

@@ -26,11 +26,11 @@
                         <td>{{ item.code }}</td>
                         <td>{{ item.phone }}</td>
                         <td>
-                            <router-link :to="{name: 'editStaff', params: {id: item.id}}" class="btn btn-xs btn-default">
+                            <router-link :to="{name: 'editStaff', params: {id: item.id}}" class="btn btn-sm btn-block btn-default">
                                 Редактировать
                             </router-link>
                             <a href="#"
-                               class="btn btn-xs btn-danger"
+                               class="btn btn-sm btn-block btn-danger"
                                v-on:click="deleteEntry(item.id)">
                                 Удалить
                             </a>
