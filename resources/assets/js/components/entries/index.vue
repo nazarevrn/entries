@@ -10,9 +10,7 @@
                 <div class="name filter">
                     <input v-model="name" type="text" class="form-control" placeholder = "ФИО">
                 </div>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">
-                    Фильтр по дате
-                </a> 
+
                 <div class="picker collapse" id="collapse">
                     <date-range-picker 
                         :from="$route.query.from" 
@@ -25,6 +23,9 @@
                 <div class="filter_buttons text-center">
                     <button type="submit" @click.prevent="fetch" class="btn btn-success">Применить фильтр</button>
                     <button type="submit" @click.prevent="reset" class="btn btn-danger">Сбросить фильтр</button>
+                    <a class="btn btn-primary" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">
+                        Фильтр по дате
+                    </a> 
                 </div>
 
             </form>    
