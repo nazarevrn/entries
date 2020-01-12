@@ -51,14 +51,49 @@
         methods: {
             saveForm() {
                 event.preventDefault();
-                var app = this;
-                var newStaff = app.staff;
+                let app = this;
+                let newStaff = app.staff;
                 axios.post('/api/v1/staff', newStaff)
                     .then(function (resp) {
-                        app.$router.push({name: 'staffIndex'});
+                        let message = '';
+                        if (resp.data.name && resp.data.name.includes("The name field is required.") === true) {
+                            messsage = "Не заполнено поле 'ФИО'!";
+                        }
+
+                        if (resp.data.code) {
+
+                            if (resp.data.code.includes("The code has already been taken.") === true ) {
+                                message = "Введенный код не уникален!";
+                            }
+
+                            if (resp.data.code.includes("The code field is required.") === true) {
+                                message = "Поле 'Код' не заполнено!";
+                            }
+
+                        }
+
+                        if (resp.data.phone) {
+
+                            if (resp.data.phone.includes("The phone has already been taken.") === true ) {
+                                message = "Введенный телефон не уникален!";
+                            }
+
+                            if (resp.data.phone.includes("The phone field is required.") === true) {
+                                message = "Поле 'Телефон' не заполнено!";
+                            }
+
+                        }
+
+                        if (message !== '') {
+                            alert(message);
+                        } else {
+                            app.$router.push({name: 'staffIndex'});
+                        }
+
                     })
                     .catch(function (resp) {
                         console.log(resp);
+
                         alert("Ошибка при создании записи");
                     });
             }

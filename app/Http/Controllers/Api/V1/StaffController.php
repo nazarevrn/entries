@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Staff;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class StaffController extends Controller
 {
@@ -36,8 +37,21 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
+
+        $v = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required|max:255',
+                'code' => 'required|unique:staff,code',
+                'phone' => 'required|unique:staff,phone'
+            ]
+        );
+
+        if ($v->fails()) {
+            return ($v->errors());
+        }
+
         Staff::create($request->all());
-        //return '';
     }
 
     /**
@@ -77,7 +91,6 @@ class StaffController extends Controller
         $staffItem->phone = $request->input('phone');
         $staffItem->save();
         return '';
-
     }
 
     /**
