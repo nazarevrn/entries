@@ -11,7 +11,7 @@
                     <input v-model="name" type="text" class="form-control" placeholder = "ФИО">
                 </div>
                 <a class="btn btn-primary" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">
-                    Фильтр по времени
+                    Фильтр по дате
                 </a> 
                 <div class="picker collapse" id="collapse">
                     <date-range-picker 

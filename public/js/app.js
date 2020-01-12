@@ -63162,7 +63162,7 @@ var render = function() {
               "aria-controls": "collapse"
             }
           },
-          [_vm._v("\n                Фильтр по времени\n            ")]
+          [_vm._v("\n                Фильтр по дате\n            ")]
         ),
         _vm._v(" "),
         _c(
