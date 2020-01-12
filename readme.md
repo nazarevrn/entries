@@ -2,7 +2,7 @@
 
 ## Установка:
 ### Все команды выполнять в директории проекта:
-- git clone git@github.com:nazarevrn/entries.git
+- git clone git@github.com:nazarevrn/entries.git .
 - composer install
 - npm install
 - переименовать файл .env.example . Новое имя .env
