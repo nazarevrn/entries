@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="form-group">
+        <div class="form-group text-center">
             <router-link :to="{name: 'staffCreate'}" class="btn btn-success">Создать нового пользователя</router-link>
         </div>
 
@@ -9,7 +9,7 @@
         </div> -->
  
         <div class="panel panel-default">
-            <div class="panel-heading">Список пользователей</div>
+            <div class="panel-heading text-center">Список пользователей</div>
             <div class="panel-body">
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -26,7 +26,7 @@
                         <td>{{ item.code }}</td>
                         <td>{{ item.phone }}</td>
                         <td>
-                            <router-link :to="{name: 'editStaff', params: {id: item.id}}" class="btn btn-sm btn-block btn-default">
+                            <router-link :to="{name: 'editStaff', params: {id: item.id}}" class="btn btn-sm btn-block btn-primary">
                                 Редактировать
                             </router-link>
                             <a href="#"

@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div class="form-group">
+        <div class="form-group text-center">
             <router-link :to="{name: 'entriesIndex'}" class="btn btn-success">Просмотр информации о посещениях</router-link>
         </div>
 
-        <div class="form-group">
+        <div class="form-group text-center">
             <a href="#"
                 class="btn btn-danger"
                 v-on:click="generate()">

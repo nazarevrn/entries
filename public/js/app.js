@@ -62220,7 +62220,7 @@ var render = function() {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "form-group" },
+      { staticClass: "form-group text-center" },
       [
         _c(
           "router-link",
@@ -62235,7 +62235,7 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
+      _c("div", { staticClass: "panel-heading text-center" }, [
         _vm._v("Список пользователей")
       ]),
       _vm._v(" "),
@@ -62259,7 +62259,7 @@ var render = function() {
                     _c(
                       "router-link",
                       {
-                        staticClass: "btn btn-sm btn-block btn-default",
+                        staticClass: "btn btn-sm btn-block btn-primary",
                         attrs: {
                           to: { name: "editStaff", params: { id: item.id } }
                         }
@@ -62415,10 +62415,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -62486,24 +62482,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-default",
-            attrs: { to: { name: "staffIndex" } }
-          },
-          [_vm._v("Back")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
+      _c("div", { staticClass: "panel-heading text-center" }, [
         _vm._v("Создать новую запись")
       ]),
       _vm._v(" "),
@@ -62617,7 +62597,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
+      _c("div", { staticClass: "col-xs-12 form-group text-center" }, [
         _c("button", { staticClass: "btn btn-success" }, [_vm._v("Создать")])
       ])
     ])
@@ -62719,10 +62699,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -62771,21 +62747,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "btn btn-default", attrs: { to: "/" } },
-          [_vm._v("Back")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
+      _c("div", { staticClass: "panel-heading text-center" }, [
         _vm._v("Редактировать запись")
       ]),
       _vm._v(" "),
@@ -62899,7 +62862,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group" }, [
+      _c("div", { staticClass: "col-xs-12 form-group text-center" }, [
         _c("button", { staticClass: "btn btn-success" }, [
           _vm._v("Редактировать")
         ])
@@ -63095,7 +63058,7 @@ var render = function() {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "form-group" },
+      { staticClass: "form-group text-center" },
       [
         _c(
           "router-link",
@@ -63109,7 +63072,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
+    _c("div", { staticClass: "panel panel-default text-center" }, [
       _c("div", { staticClass: "panel-heading" }, [_vm._v("Список посещений")]),
       _vm._v(" "),
       _c("form", [
@@ -63169,7 +63132,7 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "filter_buttons" }, [
+        _c("div", { staticClass: "filter_buttons text-center" }, [
           _c(
             "button",
             {
@@ -63348,7 +63311,7 @@ var render = function() {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "form-group" },
+      { staticClass: "form-group text-center" },
       [
         _c(
           "router-link",
@@ -63362,7 +63325,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
+    _c("div", { staticClass: "form-group text-center" }, [
       _c(
         "a",
         {

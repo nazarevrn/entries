@@ -9,8 +9,8 @@
                      <div class="panel-body table-responsive">
                         <router-view name="staffIndex"></router-view>
                         <router-view></router-view>
-                        <div class="form-group">
-                            <router-link :to="{name: 'staffIndex'}" class="btn btn-success">Список пользователей</router-link>
+                        <div class="form-group text-center">
+                            <router-link :to="{name: 'staffIndex'}" class="btn btn-primary">Список пользователей</router-link>
                             <router-link :to="{name: 'entriesIndex'}" class="btn btn-success">Список посещений</router-link>
                         </div>
                     </div>

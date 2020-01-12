@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div class="form-group">
+        <div class="form-group text-center">
             <router-link :to="{name: 'entriesGenerate'}" class="btn btn-success">Генерировать информацию о посещениях</router-link>
         </div>
  
-        <div class="panel panel-default">
+        <div class="panel panel-default text-center">
             <div class="panel-heading">Список посещений</div>
             <form>
                 <div class="name filter">
@@ -22,7 +22,7 @@
                         :submitTitle="submitTitle"  
                         @update="update"/>
                 </div>
-                <div class="filter_buttons">
+                <div class="filter_buttons text-center">
                     <button type="submit" @click.prevent="fetch" class="btn btn-success">Применить фильтр</button>
                     <button type="submit" @click.prevent="reset" class="btn btn-danger">Сбросить фильтр</button>
                 </div>

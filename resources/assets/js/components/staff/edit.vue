@@ -1,11 +1,7 @@
 <template>
     <div>
-        <div class="form-group">
-            <router-link to="/" class="btn btn-default">Back</router-link>
-        </div>
-
         <div class="panel panel-default">
-            <div class="panel-heading">Редактировать запись</div>
+            <div class="panel-heading text-center">Редактировать запись</div>
             <div class="panel-body">
                 <form v-on:submit="saveForm()">
                     <div class="row">
@@ -27,7 +23,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 form-group">
+                        <div class="col-xs-12 form-group text-center">
                             <button class="btn btn-success">Редактировать</button>
                         </div>
                     </div>
