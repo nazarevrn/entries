@@ -86,11 +86,25 @@ class StaffController extends Controller
     public function update(Request $request, $id)
     {
         $staffItem = $this->show($id);
+
+        $v = Validator::make(
+            $request->all(),
+            [
+                'name'  => 'required|max:255',
+                'code'  => 'required|unique:staff,code',
+                'phone' => 'required|unique:staff,phone'
+            ]
+        );
+
+        if ($v->fails()) {
+            return ($v->errors());
+        }
+        
         $staffItem->name = $request->input('name');
         $staffItem->code = $request->input('code');
         $staffItem->phone = $request->input('phone');
         $staffItem->save();
-        return '';
+
     }
 
     /**

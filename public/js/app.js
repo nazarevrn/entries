@@ -62699,6 +62699,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -62708,7 +62709,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         axios.get('/api/v1/staff/' + id).then(function (resp) {
             app.staff = resp.data;
         }).catch(function () {
-            alert("Не могу найти пользоватлея с указанным id");
+            alert("Не могу найти пользователя с указанным id");
             console.log(id);
         });
     },
@@ -62729,10 +62730,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var app = this;
             var newStaff = app.staff;
             axios.patch('/api/v1/staff/' + app.staffId, newStaff).then(function (resp) {
-                app.$router.push({ name: 'staffIndex' });
+                //app.$router.push({name: 'staffIndex'});
+                var message = '';
+                if (resp.data.name && resp.data.name.includes("The name field is required.") === true) {
+                    messsage = "Не заполнено поле 'ФИО'!";
+                }
+
+                if (resp.data.code) {
+
+                    if (resp.data.code.includes("The code has already been taken.") === true) {
+                        message = "Введенный код не уникален!";
+                    }
+
+                    if (resp.data.code.includes("The code field is required.") === true) {
+                        message = "Поле 'Код' не заполнено!";
+                    }
+                }
+
+                if (resp.data.phone) {
+
+                    if (resp.data.phone.includes("The phone has already been taken.") === true) {
+                        message = "Введенный телефон не уникален!";
+                    }
+
+                    if (resp.data.phone.includes("The phone field is required.") === true) {
+                        message = "Поле 'Телефон' не заполнено!";
+                    }
+                }
+
+                if (message !== '') {
+                    alert(message);
+                } else {
+                    app.$router.push({ name: 'staffIndex' });
+                }
             }).catch(function (resp) {
                 console.log(resp);
                 alert("Ошибка редактирования пользователя");
+            });
+        },
+        reload_data: function reload_data() {
+            var app = this;
+            var id = app.$route.params.id;
+            app.staffId = id;
+            axios.get('/api/v1/staff/' + id).then(function (resp) {
+                app.staff = resp.data;
+            }).catch(function () {
+                alert("Не могу найти пользователя с указанным id");
+                console.log(id);
             });
         }
     }
@@ -62849,27 +62893,34 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xs-12 form-group text-center" }, [
+                _c("button", { staticClass: "btn btn-success" }, [
+                  _vm._v("Сохранить")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.reload_data($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Отменить")]
+                )
+              ])
+            ])
           ]
         )
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xs-12 form-group text-center" }, [
-        _c("button", { staticClass: "btn btn-success" }, [
-          _vm._v("Редактировать")
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
