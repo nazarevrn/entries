@@ -5,7 +5,7 @@
 - git clone git@github.com:nazarevrn/entries.git
 - composer install
 - npm install
-- переименовать файл .env.example
+- переименовать файл .env.example . Новое имя .env
 - указать имя приложения, параметры доступа к БД
 - сгенерировать ключ приложения php artisan key:generate 
 - выполнить миграции php artisan migrate
