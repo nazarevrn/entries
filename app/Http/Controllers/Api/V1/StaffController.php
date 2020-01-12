@@ -41,8 +41,8 @@ class StaffController extends Controller
         $v = Validator::make(
             $request->all(),
             [
-                'name' => 'required|max:255',
-                'code' => 'required|unique:staff,code',
+                'name'  => 'required|max:255',
+                'code'  => 'required|unique:staff,code',
                 'phone' => 'required|unique:staff,phone'
             ]
         );
