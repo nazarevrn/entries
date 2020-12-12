@@ -1,58 +1,50 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Система учёта посещений.
+php v7.3
+## Установка:
+### Все команды выполнять в директории проекта:
+- git clone git@github.com:nazarevrn/entries.git .
+- composer install
+- npm install
+- переименовать файл .env.example . Новое имя .env
+- указать имя приложения, параметры доступа к БД
+- сгенерировать ключ приложения php artisan key:generate 
+- выполнить миграции php artisan migrate
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Составляющие:
 
-## About Laravel
+### Список пользователей:
+  Отображает список всех пользователей системы.
+  Позволяет переходить на страницы:
+  #### Создать нового пользователя
+  - Нужно ввести ФИО, уникальный код, уникальный номер телефона.
+  - Нажать кнопку "Создать". После нажатия на кнопку будет выполенна проверка на 
+      корректность переданных параметров, создан новый пользователь, либо будет 
+      показано сообщение с текстом ошибки.
+  #### Редактировать
+      Будет открыто окно для редактирования соответствующего пользователя.
+      Имеется возможность изменить все данные пользователя. Условия корректности значений 
+      полей - те же, что и при создании нового пользователя.
+  #### Удалить
+      При нажатии этой нопки выбранный пользователь будет удалён.
+  #### Внимание! При удалении пользователя будет так же удалена информация обо всех его посещениях! 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+### Список посещений:
+  Отображает список всех посещений пользователей системы. Имеет следующие кнопки:
+  #### Генерировать информацию о посещениях
+      Открывается окно с кнопками навигации и кнопокй "Генерировать". При нажатии на неё, 
+      будет сгенерирована информация и посещениях пользователей системы. Направление прохождения 
+      контрольного пункта заполняется случайным образом, дата и время - те же, что при нажатии 
+      кнопки "Генерировать".
+  #### Фильтр по дате
+      При нажатии этой кнопки открывается виджет, который позволяет задать 
+      интересующий диапазон дат. (Как в ТЗ, только дат :) ).
+      После выбора, необходимо нажать "Задать диапазон".
+      Так же имеется возможность фильтровать информацию по имени пользователя, 
+      для этого предусмотрено поле "ФИО".
+      После задания всех необходимых фильтров, нужно нажать кнопку "Применить фильтр", 
+      в результате отображаемые данные будут соответствовать заданным критериям. Для сброса 
+      параметров фильтрации реализована кнопка "Сбросить фильтр".
+      
+## License	
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
